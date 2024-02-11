@@ -52,14 +52,8 @@ export class BoxIconView extends Container {
             containerParticles,
             configParticle
         );
-        var elapsed = Date.now();
-        var update = function(){
-            requestAnimationFrame(update);
-            var now = Date.now();
-            emitter.update((now - elapsed) * 0.001);
-            elapsed = now;
-        };
+
+        emitter.autoUpdate = true;
         emitter.emit = true;
-        update();
     }
 }
